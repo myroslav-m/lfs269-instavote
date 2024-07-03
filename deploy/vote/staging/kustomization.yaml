@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
 - ../base
 
-#patchesStrategicMerge:
-#- deployment.yaml
-#- service.yaml
+patchesStrategicMerge:
+- deployment.yaml
+- service.yaml
 
 # See https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/
 replicas:
@@ -29,3 +29,10 @@ commonLabels:
 commonAnnotations:
   supported-by: "sre@domain.com"
   oncallPager: 800-555-1212
+
+configMapGenerator:
+- name: vote-options
+#  env: options.env
+#  files:
+  envs:
+  - options.env
