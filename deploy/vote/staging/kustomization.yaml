@@ -2,6 +2,30 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../base
-patchesStrategicMerge:
-- deployment.yaml
-- service.yaml
+
+#patchesStrategicMerge:
+#- deployment.yaml
+#- service.yaml
+
+# See https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/
+replicas:
+- name: vote
+  count: 4
+
+images:
+- name: schoolofdevops/vote
+  newTag: v4
+  #digest: sha256:24a0c4b4a4c0eb97a1aabb8e29f18e917d05abfe1b7a7c07857230879ce7d3d3
+  #newName: lfs269/vote
+
+namespace: instavote
+
+commonLabels:
+  project: instavote
+  env: staging
+#  owner: alice
+#  app: vote
+
+commonAnnotations:
+  supported-by: "sre@domain.com"
+  oncallPager: 800-555-1212
