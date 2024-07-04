@@ -36,3 +36,20 @@ configMapGenerator:
 #  files:
   envs:
   - options.env
+
+- name: vote-options-literals
+  literals:
+  - OPTION_A=STAGING
+  - OPTION_B=DEV
+
+secretGenerator:
+- name: vote-options-file-envs
+  envs:
+  - options.env
+- name: vote-options-literals
+  literals:
+  - VAR1=boo
+  - VAR2=foo
+- name: vote-options-files
+  files:
+  - options.env
