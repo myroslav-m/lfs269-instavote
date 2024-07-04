@@ -9,5 +9,6 @@ commonLabels:
 
 commonAnnotations:
   supported-by: "sre@example.com"
+  update-me: "v1"
 
 namespace: instavote
