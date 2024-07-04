@@ -39,8 +39,11 @@ configMapGenerator:
 
 - name: vote-options-literals
   literals:
-  - OPTION_A=STAGING
-  - OPTION_B=DEV
+#  - OPTION_A=STAGING
+#  - OPTION_B=DEV
+  - OPTION_A=FluxCD
+  - OPTION_B=ArgoCD
+
 
 secretGenerator:
 - name: vote-options-file-envs
